@@ -28,10 +28,11 @@ heading in each is its title. A `README.md` becomes the home page.
 | -------------------------------- | ------------------------------------------------ |
 | Each page                        | The CMU header, navigation, breadcrumbs, footer  |
 | Tables                           | Striped tables, full width                       |
-| Code blocks                      | Code boxes with a copy icon, as on GitHub        |
+| Code blocks                      | Code boxes with a copy icon                      |
 | `> [!NOTE]` and the other alerts | Labeled callouts                                 |
 | Other block quotes               | Notes                                            |
 | An HTML page with `layout: sections` | Full-width template sections: heroes, bands, cards and sidebars |
+| `images/preview.jpg`             | The picture in link previews                     |
 
 See [Writing Pages](writing.md) for each one, and the settings you can change.
 

@@ -4,7 +4,7 @@
     title        the site's name, in the header and footer
     description  a line under the name
     cmu.roof     red (default), gray or white
-    cmu.kit      the web kit release to load (default 0.1.0)
+    cmu.kit      the Web Kilt release to load (default 0.2.6, the one the theme is tested with)
     cmu.parent   the office or site this one belongs to (title and url): first in
                  the breadcrumbs, and the description links to it
     cmu.nav      the pages in the navigation, in order, by file name; without
@@ -12,7 +12,10 @@
     cmu.footer   office (defaults to title), address (a list of lines),
                  phone, email (a Contact Us link) and links (title and url)
     cmu.nav_links  other sites to list after the pages in the navigation (title and url)
-  Each page's description, or the site's, becomes its meta description. For a page with
+    cmu.preview  the link preview image (default images/preview.jpg, when the site has one)
+    cmu.preview_alt  its alt text (default "<title>'s home page.")
+  Markdown's ## headings get the template's rule-top line, as section headings do in the
+  Web Kilt. Each page's description, or the site's, becomes its meta description. For a page with
   full-width sections, use the sections layout.
 {%- endcomment -%}
 {%- include cmu/settings.html -%}
@@ -25,7 +28,7 @@
   <main id="content">
 {%- include cmu/breadcrumbs.html %}
     <div class="content wide"><div>
-{{ content | replace: "<table>", '<table class="alternate cmu-full">' }}
+{{ content | replace: "<table>", '<table class="alternate cmu-full">' | replace: "<h2 id=", '<h2 class="rule-top" id=' }}
     </div></div>
   </main>
 

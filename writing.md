@@ -13,9 +13,9 @@ GitHub Pages builds from your repository's root or its `/docs` folder; choose
 which in the repository's Pages settings. Use `/docs` when the repository holds
 anything besides the docs: only what's in that folder becomes the site.
 Put a `README.md` in it for the home page: GitHub shows the same file when
-someone browses the folder, so it serves as the docs' index in both places,
-while the repository's own README stays the front door for people working on
-the code.
+someone browses the folder, so it serves as the docs' index in both places.
+The repository's own README stays the front door for people working on the
+code.
 
 Building from the root, every `.md` file becomes a page. Leave files and
 folders out with `exclude` in `_config.yml`:
@@ -101,11 +101,13 @@ Tables are striped and fill the page's width.
 | `cmu.nav`     | The pages in the navigation, in order    | Every page with a title |
 | `cmu.nav_links` | Other sites, after the pages in the navigation | None |
 | `cmu.parent`  | The office your site belongs to, first in the breadcrumbs | None |
-| `cmu.kit`     | The web kit release to load              | `0.1.0`    |
+| `cmu.kit`     | The [Web Kilt](https://webkilt.andrew.cmu.edu/) release to load | `0.2.6` |
+| `cmu.preview` | The link preview image | `images/preview.jpg`, if there is one |
+| `cmu.preview_alt` | The preview image's alt text | "Your Site's home page." |
 
 ## Code
 
-Each code block gets a box with a copy icon in its corner, as on GitHub.
+Each code block gets a box with a copy icon in its corner.
 
 ```bash
 git add docs/writing.md
@@ -161,4 +163,22 @@ The [example page](example.html) shows a few sections together. In the
 front matter, `breadcrumbs: false` leaves the breadcrumbs off, and
 `carousel: true` loads the template's slideshow script for a
 `js-flickityCustom` section. On any page, a `description` becomes what
-search engines show.
+search engines and link previews show.
+
+## Link Previews
+
+When someone shares a page in Slack, Teams or a social post, the preview
+shows the page's title, its `description` (or the site's) and a picture.
+The theme writes the tags for you. For the picture, take a screenshot of the
+top of your home page at 1200 × 630 pixels, roof and all, and save it as
+`images/preview.jpg`; the theme finds it there. Describe it in
+`_config.yml`:
+
+```yaml
+cmu:
+  preview_alt: "Your Office's home page: how to borrow a camera, beside a photo of the desk."
+```
+
+The Web Kilt's [Link Previews](https://webkilt.andrew.cmu.edu/previews.html)
+page covers the picture in more detail. A page that's dated and has an
+`author` in its front matter is shared as an article.

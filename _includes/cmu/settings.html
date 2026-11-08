@@ -2,7 +2,7 @@
   Reads the site's settings for the other includes. Every layout includes it first.
 {%- endcomment -%}
 {%- assign cmu = site.cmu -%}
-{%- assign kit = cmu.kit | default: "0.1.0" -%}
+{%- assign kit = cmu.kit | default: "0.2.6" -%}
 {%- assign kitcdn = "https://cdn.jsdelivr.net/gh/cmu-web/cmu-web-kilt@" | append: kit -%}
 {%- assign tpl = "https://www.cmu.edu/common/standard-v6" -%}
 {%- assign roof = "red invert" -%}
@@ -21,6 +21,10 @@
   {%- assign rest = listed | where_exp: "p", "p.nav_order == nil" | sort: "title" -%}
   {%- assign navpages = ordered | concat: rest -%}
 {%- endif -%}
+{%- comment -%} The link preview image: cmu.preview, or images/preview.jpg when the site has one {%- endcomment -%}
+{%- assign preview = cmu.preview -%}
+{%- unless preview -%}{%- assign found = site.static_files | where: "path", "/images/preview.jpg" | first -%}{%- if found -%}{%- assign preview = "/images/preview.jpg" -%}{%- endif -%}{%- endunless -%}
+{%- assign previewalt = site.title | append: "'s home page." -%}
 {%- assign parent = cmu.parent -%}
 {%- assign footer = cmu.footer -%}
 {%- assign office = footer.office | default: cmu.office | default: site.title -%}

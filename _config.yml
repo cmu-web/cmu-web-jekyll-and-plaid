@@ -1,6 +1,8 @@
 title: Jekyll & Plaid
 description: A theme with a checkered past
+url: https://jekyllandplaid.andrew.cmu.edu
 cmu:
+  preview_alt: "Jekyll & Plaid's docs home page: A theme with a checkered past, in CMU's template with a red roof."
   roof: red
   footer:
     office: Office of the Vice Provost for Teaching and Learning Innovation
@@ -9,5 +11,4 @@ cmu:
     links:
       - title: Carnegie Mellon Web Kilt
         url: https://webkilt.andrew.cmu.edu/
-  kit: 0.2.0
 exclude: [vendor, Gemfile, Gemfile.lock]
