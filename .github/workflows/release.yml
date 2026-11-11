@@ -1,0 +1,34 @@
+# Builds the docs site for jekyllandplaid.andrew.cmu.edu and attaches it to
+# the tag's GitHub release as site.tar.gz. The github-pages gem builds it, as
+# GitHub Pages does; the server serves the files as they are.
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+      # The site is served at the root of its own host, not under the
+      # repository's name as on GitHub Pages.
+      - run: bundle exec jekyll build --baseurl ""
+        env:
+          JEKYLL_ENV: production
+          PAGES_REPO_NWO: ${{ github.repository }}
+          JEKYLL_GITHUB_TOKEN: ${{ github.token }}
+      - run: test -f _site/index.html
+      # One top-level folder, which Nix strips when it unpacks the archive.
+      - run: mv _site jekyll-and-plaid-site && tar -czf site.tar.gz jekyll-and-plaid-site
+      - run: gh release create "$GITHUB_REF_NAME" site.tar.gz --title "$GITHUB_REF_NAME" --generate-notes
+        env:
+          GH_TOKEN: ${{ github.token }}

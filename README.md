@@ -44,6 +44,15 @@ for cards and gallery entries on the other CMU Web sites. Keep it a clean
 at the same path so those sites can use the public URL directly. Its Open
 Graph image, `images/preview.jpg`, is maintained separately.
 
+## Release the Docs Site
+
+jekyllandplaid.andrew.cmu.edu serves a built copy of this site. Pushing a
+`v` tag, such as `v0.1.0`, runs the
+[release workflow](.github/workflows/release.yml). It builds the site with
+the `github-pages` gem, as GitHub Pages does, and attaches it to the tag's
+GitHub release as `site.tar.gz`. The server's configuration pins that file,
+so the site changes only when the server moves to a new tag.
+
 ## License
 
 BSD 3-Clause (see `LICENSE`), copyright Carnegie Mellon University. It
