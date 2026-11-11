@@ -36,6 +36,14 @@ heading in each is its title. A `README.md` becomes the home page.
 
 See [Writing Pages](writing.md) for each one, and the settings you can change.
 
+## Maintain the Docs Preview
+
+The Jekyll & Plaid documentation site publishes `images/cmu-web-preview.webp`
+for cards and gallery entries on the other CMU Web sites. Keep it a clean
+1040-by-656-pixel screenshot without a decorative browser frame. Replace it
+at the same path so those sites can use the public URL directly. Its Open
+Graph image, `images/preview.jpg`, is maintained separately.
+
 ## License
 
 BSD 3-Clause (see `LICENSE`), copyright Carnegie Mellon University. It
