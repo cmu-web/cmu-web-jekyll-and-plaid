@@ -47,7 +47,7 @@ Graph image, `images/preview.jpg`, is maintained separately.
 ## Release the Docs Site
 
 jekyllandplaid.andrew.cmu.edu serves a built copy of this site. Pushing a
-`v` tag, such as `v0.1.0`, runs the
+version tag, such as `0.1.0`, runs the
 [release workflow](.github/workflows/release.yml). It builds the site with
 the `github-pages` gem, as GitHub Pages does, and attaches it to the tag's
 GitHub release as `site.tar.gz`. The server's configuration pins that file,
