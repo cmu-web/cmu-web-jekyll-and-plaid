@@ -182,3 +182,15 @@ cmu:
 The Web Kilt's [Link Previews](https://webkilt.andrew.cmu.edu/previews.html)
 page covers the picture in more detail. A page that's dated and has an
 `author` in its front matter is shared as an article.
+
+## Analytics
+
+To measure your site with Google Analytics, give the theme your Google tag's
+ID in `_config.yml`, and every page loads the tag:
+
+```yaml
+cmu:
+  google_tag: GTM-XXXXXXXX
+```
+
+Without it, the theme loads no analytics.

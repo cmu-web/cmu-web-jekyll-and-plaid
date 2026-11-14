@@ -44,6 +44,7 @@ class ThemeTest < Minitest::Test
       assert_includes home, 'cmu-web-kilt'
       assert_includes home, "Andrew Carnegie&#39;s Project"
       assert_includes home, 'href="/getting-started.html"', 'links between Markdown files become page links'
+      refute_includes home, 'googletagmanager', 'a site without cmu.google_tag loads no analytics'
 
       page = File.read(File.join(out, 'getting-started.html'))
       assert_match %r{<title>Getting Started}, page, 'the first heading is the title'

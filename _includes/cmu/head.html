@@ -1,4 +1,12 @@
 <head>
+  {%- if cmu.google_tag %}
+  <script async src="https://www.googletagmanager.com/gtm.js?id={{ cmu.google_tag | url_encode }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  {%- endif %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {%- assign summary = page.description | default: site.description %}
