@@ -59,7 +59,7 @@ The same tag publishes the theme as a gem, `cmu-web-jekyll-and-plaid`, at
 the tag's version, through the
 [theme gem workflow](.github/workflows/rubygems.yml); see
 [the gem's README](packages/jekyll/README.md) for using it. It uses trusted
-publishing, so it needs no API key, but RubyGems.org has to trust it first.
+publishing, so there's no API key to store, but RubyGems.org has to trust it first.
 Do this once, before the first tag that should publish the gem:
 
 1. Sign in to RubyGems.org with an account that has multi-factor
