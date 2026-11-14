@@ -5,7 +5,7 @@ name: Theme gem
 # publishing), so there's no API key to store.
 on:
   push:
-    branches: [main]
+    branches: [0.x]
     tags: ["[0-9]*"]
   pull_request:
   workflow_dispatch:
