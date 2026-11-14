@@ -2,3 +2,11 @@ _site/
 .jekyll-cache/
 .bundle/
 vendor/
+# The theme gem: copies of the theme and license (rake assets) and its build
+packages/jekyll/Gemfile.lock
+packages/jekyll/pkg/
+packages/jekyll/_layouts/
+packages/jekyll/_includes/
+packages/jekyll/assets/
+packages/jekyll/LICENSE
+packages/jekyll/VERSION

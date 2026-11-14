@@ -11,4 +11,4 @@ cmu:
     links:
       - title: Carnegie Mellon Web Kilt
         url: https://webkilt.andrew.cmu.edu/
-exclude: [vendor, Gemfile, Gemfile.lock]
+exclude: [vendor, Gemfile, Gemfile.lock, packages]

@@ -1,0 +1,37 @@
+# frozen_string_literal: true
+
+require 'rake/testtask'
+require 'rubygems/package'
+require 'fileutils'
+
+SITE = File.expand_path('../..', __dir__)
+THEME = %w[_layouts _includes assets].freeze
+
+desc "Copy the theme's files and license into the gem, and its version from the release tag"
+task :assets do
+  FileUtils.rm_rf(THEME)
+  THEME.each { |dir| FileUtils.cp_r(File.join(SITE, dir), dir) }
+  FileUtils.cp(File.join(SITE, 'LICENSE'), 'LICENSE')
+  tag = ENV['GITHUB_REF_TYPE'] == 'tag' ? ENV.fetch('GITHUB_REF_NAME') : `git describe --tags --abbrev=0 --match "[0-9]*" 2>/dev/null`.strip
+  File.write('VERSION', "#{tag.empty? ? '0.0.0' : tag}\n")
+end
+
+desc 'Remove the copied files and the build'
+task :clean do
+  FileUtils.rm_rf(THEME + %w[LICENSE VERSION pkg])
+end
+
+desc 'Build the gem in pkg/'
+task build: :assets do
+  spec = Gem::Specification.load('cmu-web-jekyll-and-plaid.gemspec')
+  FileUtils.mkdir_p('pkg')
+  Gem::Package.build(spec, false, true, File.join('pkg', spec.file_name))
+end
+
+Rake::TestTask.new do |task|
+  task.libs << 'test'
+  task.pattern = 'test/**/*_test.rb'
+end
+task test: :assets
+
+task default: :test
