@@ -58,6 +58,18 @@ cmu:
       url: https://www.youtube.com/@your-office
 ```
 
+To make one a tab, after your pages, give it `tab: true`. Use it for a part of
+your site that lives somewhere else, such as a form on another server, and
+keep links to other people's sites in the menu:
+
+```yaml
+cmu:
+  nav_links:
+    - title: Request Equipment
+      url: https://forms.example.edu/equipment
+      tab: true
+```
+
 If your site belongs to a larger office, name it as the `parent`. It comes
 first in the breadcrumbs, and the line under your site's name links to it:
 
