@@ -19,7 +19,7 @@ description: A line under the name
 Then turn on GitHub Pages for the repository, building from the branch and
 folder that hold your Markdown. If you build with GitHub Actions instead, name
 your repository in `_config.yml` too (`repository: your-org/your-repo`), since
-the footer's link to it needs the name. Every `.md` file becomes a page, and the first
+the footer's link to it uses the name. Every `.md` file becomes a page, and the first
 heading in each is its title. A `README.md` becomes the home page.
 
 ## What You Get
