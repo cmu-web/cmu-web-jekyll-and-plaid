@@ -8,15 +8,24 @@
     <div>
       <nav id="nav">
         <ul>
-          {%- for p in navpages %}
+          {%- comment %} Tabs: the pages, then nav_links marked tab {% endcomment %}
+          {%- for p in navpages %}{% unless p.nav_secondary %}
           {%- if p.url == page.url %}
           <li class="active"><a href="{{ p.url | relative_url }}" aria-current="page">{{ p.title }}</a></li>
           {%- else %}
           <li><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
           {%- endif %}
-          {%- endfor %}
+          {%- endunless %}{% endfor %}
           {%- for l in cmu.nav_links %}{% if l.tab %}
           <li><a class="external" href="{{ l.url }}">{{ l.title }}</a></li>
+          {%- endif %}{% endfor %}
+          {%- comment %} Menu only: pages marked nav_secondary, then the other nav_links {% endcomment %}
+          {%- for p in navpages %}{% if p.nav_secondary %}
+          {%- if p.url == page.url %}
+          <li class="secondary active"><a href="{{ p.url | relative_url }}" aria-current="page">{{ p.title }}</a></li>
+          {%- else %}
+          <li class="secondary"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
+          {%- endif %}
           {%- endif %}{% endfor %}
           {%- for l in cmu.nav_links %}{% unless l.tab %}
           <li class="secondary"><a class="external" href="{{ l.url }}">{{ l.title }}</a></li>

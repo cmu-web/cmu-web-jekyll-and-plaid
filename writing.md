@@ -39,6 +39,17 @@ nav_order: 2
 ---
 ```
 
+For a page about the site rather than one of its main sections, such as an
+About or a Gallery page, give it `nav_secondary: true`. It stays out of the
+tabs and appears in the menu after them:
+
+```yaml
+---
+title: About
+nav_secondary: true
+---
+```
+
 To list the navigation in one place instead, name the pages in order in
 `_config.yml`; the list replaces `nav_order` and `nav_exclude`:
 
