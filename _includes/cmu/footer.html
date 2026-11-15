@@ -30,7 +30,7 @@
           {%- for l in cmu.nav_links %}{% unless l.tab %}
           <li class="secondary"><a class="external" href="{{ l.url }}">{{ l.title }}</a></li>
           {%- endunless %}{% endfor %}
-          {%- if site.github.repository_url %}
+          {%- if site.github.repository_url and cmu.github_link != false %}
           <li class="secondary"><a class="external" href="{{ site.github.repository_url }}">{{ site.title }} on GitHub</a></li>
           {%- endif %}
         </ul>

@@ -81,6 +81,15 @@ cmu:
       tab: true
 ```
 
+The menu ends with a link to your site's GitHub repository. To leave it out,
+such as when the site's pages link to their own repositories, set
+`github_link` to `false`:
+
+```yaml
+cmu:
+  github_link: false
+```
+
 If your site belongs to a larger office, name it as the `parent`. It comes
 first in the breadcrumbs, and the line under your site's name links to it:
 
