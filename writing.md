@@ -133,7 +133,7 @@ Tables are striped and fill the page's width.
 | `cmu.nav`     | The pages in the navigation, in order    | Every page with a title |
 | `cmu.nav_links` | Other sites, after the pages in the navigation | None |
 | `cmu.parent`  | The office your site belongs to, first in the breadcrumbs | None |
-| `cmu.kit`     | The [Web Kilt](https://webkilt.andrew.cmu.edu/) release to load | `0.6.9` |
+| `cmu.kit`     | The [Web Kilt](https://webkilt.andrew.cmu.edu/) release to load | `0.7.0` |
 | `cmu.preview` | The link preview image | `images/preview.jpg`, if there is one |
 | `cmu.preview_alt` | The preview image's alt text | "Your Site's home page." |
 
@@ -172,7 +172,7 @@ Any other block quote becomes a plain note.
 ## Full-Width Pages
 
 Markdown pages go in one column. For a page with full-width sections, such
-as a home page with a hero, color bands and cards, or a page with a sidebar,
+as a home page with a hero, full-width sections and cards, or a page with a sidebar,
 use the `sections` layout and write the page in HTML with the template's
 sections and the kit's components. It keeps your site's header, navigation
 and footer:
