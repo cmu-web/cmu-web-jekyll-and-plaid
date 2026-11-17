@@ -4,7 +4,7 @@ A theme with a checkered past: GitHub Pages sites in CMU style, built from
 Carnegie Mellon's web template and the
 [Carnegie Mellon Web Kilt](https://webkilt.andrew.cmu.edu/). Write your
 docs in Markdown the way you already do, and build a home page from the
-template's full-width sections; both come out looking like cmu.edu.
+template's full-width sections; both match the rest of cmu.edu.
 
 ## Use It
 
@@ -24,15 +24,15 @@ heading in each is its title. A `README.md` becomes the home page.
 
 ## What You Get
 
-| Markdown                         | On the Page                                      |
-| -------------------------------- | ------------------------------------------------ |
-| Each page                        | The CMU header, navigation, breadcrumbs, footer  |
-| Tables                           | Striped tables, full width                       |
-| Code blocks                      | Code boxes with a copy icon                      |
-| `> [!NOTE]` and the other alerts | Labeled callouts                                 |
-| Other block quotes               | Notes                                            |
+| Markdown                             | On the Page                                                                   |
+| ------------------------------------ | ----------------------------------------------------------------------------- |
+| Each page                            | The CMU header, navigation, breadcrumbs, footer                               |
+| Tables                               | Striped tables, full width                                                    |
+| Code blocks                          | Code boxes with a copy icon                                                   |
+| `> [!NOTE]` and the other alerts     | Labeled callouts                                                              |
+| Other block quotes                   | Notes                                                                         |
 | An HTML page with `layout: sections` | Full-width template sections: heroes, full-width sections, cards and sidebars |
-| `images/preview.jpg`             | The picture in link previews                     |
+| `images/preview.jpg`                 | The picture in link previews                                                  |
 
 See [Writing Pages](writing.md) for each one, and the settings you can change.
 
@@ -43,6 +43,14 @@ for cards and gallery entries on the other CMU Web sites. Keep it a clean
 1040-by-656-pixel screenshot without a decorative browser frame. Replace it
 at the same path so those sites can use the public URL directly. Its Open
 Graph image, `images/preview.jpg`, is maintained separately.
+
+To make it, capture the published home page with FencePost's gallery
+command, from a FencePost checkout. It takes the public page at 1040 × 656,
+signed out, with the menu closed:
+
+```bash
+npm run gallery -- https://jekyllandplaid.andrew.cmu.edu/0/ /path/to/cmu-web-jekyll-and-plaid/images/cmu-web-preview.webp
+```
 
 ## Release the Docs Site
 
