@@ -4,7 +4,7 @@ Gem::Specification.new do |spec|
   spec.name = 'cmu-web-jekyll-and-plaid'
   # rake version writes the release tag here
   spec.version = File.file?('VERSION') ? File.read('VERSION').strip : '0.0.0'
-  spec.authors = ['Carnegie Mellon University']
+  spec.authors = ['CMU Web']
   spec.summary = 'A Jekyll theme in Carnegie Mellon style'
   spec.description = "Jekyll & Plaid builds sites with Carnegie Mellon's web template and the Carnegie Mellon Web Kilt: Markdown docs pages and full-width home pages that look like cmu.edu."
   spec.homepage = 'https://jekyllandplaid.andrew.cmu.edu/'
