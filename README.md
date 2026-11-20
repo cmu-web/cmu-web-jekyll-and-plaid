@@ -54,31 +54,23 @@ npm run gallery -- https://jekyllandplaid.andrew.cmu.edu/0/ /path/to/cmu-web-jek
 
 ## Release the Docs Site
 
-jekyllandplaid.andrew.cmu.edu serves a built copy of this site. Pushing a
-version tag, such as `0.1.0`, runs the
-[release workflow](.github/workflows/release.yml). It builds the site with
-the `github-pages` gem, as GitHub Pages does, and attaches it to the tag's
-GitHub release as `site.tar.gz`. The server's configuration pins that file,
+jekyllandplaid.andrew.cmu.edu serves a built copy of this site. Push a
+version tag, such as `0.1.0`, then create the tag's GitHub release with its
+notes. The [Attach Release Files workflow](.github/workflows/attach-release-files.yml) builds the site
+with the `github-pages` gem, as GitHub Pages does, waits for the release and
+attaches the site to it as `site.tar.gz`. The server's configuration pins that file,
 so the site changes only when the server moves to a new tag.
 
 ## Publish the Theme Gem
 
 The same tag publishes the theme as a gem, `cmu-web-jekyll-and-plaid`, at
 the tag's version, through the
-[theme gem workflow](.github/workflows/rubygems.yml); see
+[Publish Gem workflow](.github/workflows/publish-gem.yml); see
 [the gem's README](packages/jekyll/README.md) for using it. It uses trusted
-publishing, so there's no API key to store, but RubyGems.org has to trust it first.
-Do this once, before the first tag that should publish the gem:
-
-1. Sign in to RubyGems.org with an account that has multi-factor
-   authentication on.
-2. Under Trusted Publishers, add a pending trusted publisher for the gem
-   `cmu-web-jekyll-and-plaid`: GitHub Actions, owner `cmu-web`, repository
-   `cmu-web-jekyll-and-plaid`, workflow `rubygems.yml` and environment
-   `rubygems`.
-
-Until then, the workflow's publish step fails on each tag; the docs site's
-release is unaffected.
+publishing, so there's no API key to store. RubyGems.org trusts it as: GitHub
+Actions, owner `cmu-web`, repository `cmu-web-jekyll-and-plaid`, workflow
+`publish-gem.yml` and environment `rubygems`. Renaming the workflow file stops
+publishing until that trusted publisher is changed to match.
 
 ## License
 
