@@ -1,0 +1,12 @@
+[
+  {
+    "id": "web-jekyll",
+    "name": "Jekyll & Plaid",
+    "url": "https://themes.andrew.cmu.edu/jekyll-and-plaid/",
+    "link": "Visit Jekyll & Plaid's docs",
+    "image": "images/cmu-web-preview.webp",
+    "alt": "The Jekyll & Plaid documentation home page.",
+    "summary": "A GitHub Pages theme that turns Markdown into pages in CMU style, with the kit's code blocks and callouts, and a layout for full-width pages.",
+    "pills": ["CMS", "Jekyll"]
+  }
+]
