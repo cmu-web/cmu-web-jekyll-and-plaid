@@ -1,14 +1,16 @@
 # Jekyll & Plaid
 
-A theme with a checkered past: GitHub Pages sites in CMU style, built from
-Carnegie Mellon's web template and the
-[Carnegie Mellon Web Kilt](https://webkilt.andrew.cmu.edu/). Write your
-docs in Markdown the way you already do, and build a home page from the
-template's full-width sections; both match the rest of cmu.edu.
+Jekyll & Plaid is a GitHub Pages theme in Carnegie Mellon style: Markdown
+docs and full-width pages built from Carnegie Mellon's web template and the
+[Carnegie Mellon Web Kilt](https://webkilt.andrew.cmu.edu/).
 
-## Use It
+Docs: https://themes.andrew.cmu.edu/jekyll-and-plaid/
 
-In your repository's `_config.yml`, name the theme and your site:
+[![Jekyll & Plaid at work: a full-width page with numbered steps and a blue callout, under the CMU roof.](docs/images/in-use.jpg)](https://themes.andrew.cmu.edu/jekyll-and-plaid/)
+
+## Install
+
+In your repository's `_config.yml`:
 
 ```yaml
 remote_theme: cmu-web/cmu-web-jekyll-and-plaid
@@ -16,64 +18,8 @@ title: Your Office or Project
 description: A line under the name
 ```
 
-Then turn on GitHub Pages for the repository, building from the branch and
-folder that hold your Markdown. If you build with GitHub Actions instead, name
-your repository in `_config.yml` too (`repository: your-org/your-repo`), since
-the footer's link to it uses the name. Every `.md` file becomes a page, and the first
-heading in each is its title. A `README.md` becomes the home page.
-
-## What You Get
-
-| Markdown                             | On the Page                                                                   |
-| ------------------------------------ | ----------------------------------------------------------------------------- |
-| Each page                            | The CMU header, navigation, breadcrumbs, footer                               |
-| Tables                               | Striped tables, full width                                                    |
-| Code blocks                          | Code boxes with a copy icon                                                   |
-| `> [!NOTE]` and the other alerts     | Labeled callouts                                                              |
-| Other block quotes                   | Notes                                                                         |
-| An HTML page with `layout: sections` | Full-width template sections: heroes, full-width sections, cards and sidebars |
-| `images/preview.jpg`                 | The picture in link previews                                                  |
-
-See [Writing Pages](writing.md) for each one, and the settings you can change.
-
-## Maintain the Docs Preview
-
-The Jekyll & Plaid documentation site publishes `images/cmu-web-preview.webp`
-for cards and gallery entries on the other CMU Web sites. Keep it a clean
-1040-by-656-pixel screenshot without a decorative browser frame. Replace it
-at the same path so those sites can use the public URL directly. Its Open
-Graph image, `images/preview.jpg`, is maintained separately.
-
-To make it, capture the published home page with FencePost's gallery
-command, from a FencePost checkout. It takes the public page at 1040 × 656,
-signed out, with the menu closed:
-
-```bash
-npm run gallery -- https://jekyllandplaid.andrew.cmu.edu/0/ /path/to/cmu-web-jekyll-and-plaid/images/cmu-web-preview.webp
-```
-
-## Release the Docs Site
-
-jekyllandplaid.andrew.cmu.edu serves a built copy of this site. Push a
-version tag, such as `0.1.0`, then create the tag's GitHub release with its
-notes. The [Attach Release Files workflow](.github/workflows/attach-release-files.yml) builds the site
-with the `github-pages` gem, as GitHub Pages does, waits for the release and
-attaches the site to it as `site.tar.gz`. The server's configuration pins that file,
-so the site changes only when the server moves to a new tag.
-
-## Publish the Theme Gem
-
-The same tag publishes the theme as a gem, `cmu-web-jekyll-and-plaid`, at
-the tag's version, through the
-[Publish Gem workflow](.github/workflows/publish-gem.yml); see
-[the gem's README](packages/jekyll/README.md) for using it. It uses trusted
-publishing, so there's no API key to store. RubyGems.org trusts it as: GitHub
-Actions, owner `cmu-web`, repository `cmu-web-jekyll-and-plaid`, workflow
-`publish-gem.yml` and environment `rubygems`. Renaming the workflow file stops
-publishing until that trusted publisher is changed to match.
-
-## License
-
-BSD 3-Clause (see `LICENSE`), copyright Carnegie Mellon University. It
-doesn't cover Carnegie Mellon's names and marks or its web template, which
-the theme loads from www.cmu.edu.
+Turn on GitHub Pages for the repository, and each Markdown file becomes a
+page in CMU's template. The docs cover writing pages, full-width layouts and
+the settings. For a site you build yourself with Jekyll 4, use
+[the gem](packages/jekyll/README.md); [Deployment](DEPLOYMENT.md) has both
+ways in.
