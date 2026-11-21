@@ -10,3 +10,8 @@ packages/jekyll/_includes/
 packages/jekyll/assets/
 packages/jekyll/LICENSE
 packages/jekyll/VERSION
+
+# Theme copies for previewing unpushed theme changes (DEVELOPMENT.md)
+docs/_layouts/
+docs/_includes/
+docs/assets/

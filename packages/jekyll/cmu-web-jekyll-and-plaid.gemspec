@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.authors = ['CMU Web']
   spec.summary = 'A Jekyll theme in Carnegie Mellon style'
   spec.description = "Jekyll & Plaid builds sites with Carnegie Mellon's web template and the Carnegie Mellon Web Kilt: Markdown docs pages and full-width home pages that look like cmu.edu."
-  spec.homepage = 'https://jekyllandplaid.andrew.cmu.edu/'
+  spec.homepage = 'https://themes.andrew.cmu.edu/jekyll-and-plaid/'
   spec.license = 'BSD-3-Clause'
   spec.required_ruby_version = '>= 3.2'
 

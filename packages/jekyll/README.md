@@ -48,7 +48,7 @@ The gem installs those plugins for you. For the footer's link to your
 repository, add `jekyll-github-metadata` to your `Gemfile` and plugins too,
 and name the repository in `_config.yml` (`repository: your-org/your-repo`).
 
-[Writing Pages](https://jekyllandplaid.andrew.cmu.edu/0/writing.html) covers
+[Writing Pages](https://themes.andrew.cmu.edu/jekyll-and-plaid/0/writing.html) covers
 the pages, the home page's sections and the settings you can change.
 
 ## Work on the Gem

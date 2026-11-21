@@ -1,7 +1,8 @@
 version: 2
 updates:
   - package-ecosystem: bundler
-    directory: /
+    # The docs site's gems, the ones GitHub Pages builds with
+    directory: /docs
     schedule:
       interval: weekly
     commit-message:

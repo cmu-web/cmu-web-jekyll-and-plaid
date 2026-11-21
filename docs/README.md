@@ -1,0 +1,37 @@
+# Jekyll & Plaid
+
+A theme with a checkered past: GitHub Pages sites in CMU style, built from
+Carnegie Mellon's web template and the
+[Carnegie Mellon Web Kilt](https://webkilt.andrew.cmu.edu/). Write your
+docs in Markdown the way you already do, and build a home page from the
+template's full-width sections; both match the rest of cmu.edu.
+
+## Use It
+
+In your repository's `_config.yml`, name the theme and your site:
+
+```yaml
+remote_theme: cmu-web/cmu-web-jekyll-and-plaid
+title: Your Office or Project
+description: A line under the name
+```
+
+Then turn on GitHub Pages for the repository, building from the branch and
+folder that hold your Markdown. If you build with GitHub Actions instead, name
+your repository in `_config.yml` too (`repository: your-org/your-repo`), since
+the footer's link to it uses the name. Every `.md` file becomes a page, and the first
+heading in each is its title. A `README.md` becomes the home page.
+
+## What You Get
+
+| Markdown                             | On the Page                                                                   |
+| ------------------------------------ | ----------------------------------------------------------------------------- |
+| Each page                            | The CMU header, navigation, breadcrumbs, footer                               |
+| Tables                               | Striped tables, full width                                                    |
+| Code blocks                          | Code boxes with a copy icon                                                   |
+| `> [!NOTE]` and the other alerts     | Labeled callouts                                                              |
+| Other block quotes                   | Notes                                                                         |
+| An HTML page with `layout: sections` | Full-width template sections: heroes, full-width sections, cards and sidebars |
+| `images/preview.jpg`                 | The picture in link previews                                                  |
+
+See [Writing Pages](writing.md) for each one, and the settings you can change.

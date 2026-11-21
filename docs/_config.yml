@@ -1,15 +1,20 @@
+# The docs site uses the theme as any site does, through remote_theme, so
+# every build checks the setup the docs describe. The release workflow pins
+# it to the tag being released.
+remote_theme: cmu-web/cmu-web-jekyll-and-plaid@0.x
+plugins:
+  - jekyll-remote-theme
 title: Jekyll & Plaid
 description: A theme with a checkered past
-url: https://jekyllandplaid.andrew.cmu.edu
+url: https://themes.andrew.cmu.edu
 cmu:
   preview_alt: "Jekyll & Plaid's docs home page: A theme with a checkered past, in CMU's template with a red roof."
   roof: red
   google_tag: GTM-WCGJV4Z9
   footer:
-    office: Office of the Vice Provost for Teaching and Learning Innovation
     phone: 412-268-0000
     email: jekyll-and-plaid@example.edu
     links:
       - title: Carnegie Mellon Web Kilt
         url: https://webkilt.andrew.cmu.edu/
-exclude: [vendor, Gemfile, Gemfile.lock, packages]
+exclude: [vendor, Gemfile, Gemfile.lock]

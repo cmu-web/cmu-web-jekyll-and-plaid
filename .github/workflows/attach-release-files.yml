@@ -1,6 +1,7 @@
-# Builds the docs site for jekyllandplaid.andrew.cmu.edu and attaches it to
-# the tag's GitHub release as site.tar.gz. The github-pages gem builds it, as
-# GitHub Pages does; the server serves the files as they are.
+# Builds the docs site (docs/) for themes.andrew.cmu.edu/jekyll-and-plaid/
+# and attaches it to the tag's GitHub release as site.tar.gz. The github-pages
+# gem builds it, as GitHub Pages does, with the theme pinned to the tag; the
+# server serves the files as they are.
 name: Attach Release Files
 
 on:
@@ -22,17 +23,24 @@ jobs:
         with:
           ruby-version: "3.3"
           bundler-cache: true
-      # The site is served under its template line's number on its own host
-      # (/0/ for this line), not under the repository's name as on GitHub
-      # Pages.
-      - run: bundle exec jekyll build --baseurl /0
+          working-directory: docs
+      # The docs use the theme through remote_theme, at 0.x in their config;
+      # the released site uses the theme as it is at this tag
+      - working-directory: docs
+        run: |
+          echo "remote_theme: cmu-web/cmu-web-jekyll-and-plaid@$GITHUB_REF_NAME" > _release.yml
+      # The site is served under the theme's folder and its template line's
+      # number (/jekyll-and-plaid/0/ for this line), not under the
+      # repository's name as on GitHub Pages.
+      - run: bundle exec jekyll build --config _config.yml,_release.yml --baseurl /jekyll-and-plaid/0
+        working-directory: docs
         env:
           JEKYLL_ENV: production
           PAGES_REPO_NWO: ${{ github.repository }}
           JEKYLL_GITHUB_TOKEN: ${{ github.token }}
-      - run: test -f _site/index.html
+      - run: test -f docs/_site/index.html
       # One top-level folder, which Nix strips when it unpacks the archive.
-      - run: mv _site jekyll-and-plaid-site && tar -czf site.tar.gz jekyll-and-plaid-site
+      - run: mv docs/_site jekyll-and-plaid-site && tar -czf site.tar.gz jekyll-and-plaid-site
       # A person makes the release, with its notes; this waits for it (up to
       # 30 minutes) and attaches the files
       - name: Attach to the release
