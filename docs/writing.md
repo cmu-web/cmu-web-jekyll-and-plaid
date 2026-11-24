@@ -133,9 +133,12 @@ Tables are striped and fill the page's width.
 | `cmu.nav`     | The pages in the navigation, in order    | Every page with a title |
 | `cmu.nav_links` | Other sites, after the pages in the navigation | None |
 | `cmu.parent`  | The office your site belongs to, first in the breadcrumbs | None |
-| `cmu.kit`     | The [Web Kilt](https://webkilt.andrew.cmu.edu/) release to load | `0.8.9` |
+| `cmu.kit`     | The [Web Kilt](https://webkilt.andrew.cmu.edu/) release to load | `0.8.30` |
 | `cmu.preview` | The link preview image | `images/preview.jpg`, if there is one |
 | `cmu.preview_alt` | The preview image's alt text | "Your Site's home page." |
+| `cmu.logo` | A logo to the right of the name, below it on phones | None |
+| `cmu.logo_url` | Where the logo goes | The home page |
+| `cmu.logo_alt` | The logo's alt text, for a `logo_url` | None |
 
 ## Code
 

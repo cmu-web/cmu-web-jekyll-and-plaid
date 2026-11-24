@@ -6,9 +6,20 @@
       </div>
     </div>
     <div id="sitename">
+      {%- if cmu.logo %}<div>{% endif %}
       <span class="sitetitle"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></span>
       {%- if site.description %}
       <h2>{% if parent.url %}<a href="{{ parent.url }}">{{ site.description }}</a>{% else %}{{ site.description }}{% endif %}</h2>
+      {%- endif %}
+      {%- comment %} The template's logo: a linked image right after the name's div, with
+          no space between them. A logo that only goes home repeats the name's link, so
+          screen readers and the keyboard skip it {% endcomment %}
+      {%- if cmu.logo %}</div>
+      {%- if cmu.logo_url -%}
+      <a href="{{ cmu.logo_url }}"><img src="{{ cmu.logo | relative_url }}" alt="{{ cmu.logo_alt | escape }}"></a>
+      {%- else -%}
+      <a href="{{ '/' | relative_url }}" tabindex="-1" aria-hidden="true"><img src="{{ cmu.logo | relative_url }}" alt=""></a>
+      {%- endif %}
       {%- endif %}
     </div>
   </header>

@@ -52,6 +52,20 @@ class ThemeTest < Minitest::Test
     end
   end
 
+  def test_a_logo_goes_right_of_the_name
+    site = SITE.merge('_config.yml' => SITE['_config.yml'] + "cmu:\n  logo: images/logo.svg\n")
+    build(site) do |out|
+      home = File.read(File.join(out, 'index.html'))
+      assert_match %r{</div><a href="/" tabindex="-1" aria-hidden="true"><img src="/images/logo.svg" alt=""></a>}, home,
+                   'a logo that goes home follows the name with no space, and screen readers skip it'
+    end
+    site = SITE.merge('_config.yml' => SITE['_config.yml'] + "cmu:\n  logo: images/logo.svg\n  logo_url: https://example.edu/\n  logo_alt: The Example Office\n")
+    build(site) do |out|
+      assert_includes File.read(File.join(out, 'index.html')),
+                      '</div><a href="https://example.edu/"><img src="/images/logo.svg" alt="The Example Office"></a>'
+    end
+  end
+
   def test_the_theme_script_is_copied_into_the_site
     build(SITE) do |out|
       assert File.file?(File.join(out, 'assets/js/jekyll-and-plaid.js'))
