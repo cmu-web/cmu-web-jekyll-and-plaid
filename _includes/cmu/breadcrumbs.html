@@ -3,6 +3,8 @@
       {%- if parent.url %}
       <a href="{{ parent.url }}">{{ parent.title }}</a>&nbsp;&rsaquo;&nbsp;
       {%- endif -%}
-      <a href="{{ '/' | relative_url }}">{{ site.title }}</a>&nbsp;&rsaquo;&nbsp;{{ page.title }}
+      <a href="{{ '/' | relative_url }}">{{ site.title }}</a>&nbsp;&rsaquo;&nbsp;
+      {%- if navparent %}<a href="{{ navparent.url | relative_url }}">{{ navparent.title }}</a>&nbsp;&rsaquo;&nbsp;{% endif -%}
+      {{ page.title }}
     </div>
     {%- endunless %}

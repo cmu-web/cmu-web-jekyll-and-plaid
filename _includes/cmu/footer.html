@@ -12,6 +12,8 @@
           {%- for p in navpages %}{% unless p.nav_secondary %}
           {%- if p.url == page.url %}
           <li class="active"><a href="{{ p.url | relative_url }}" aria-current="page">{{ p.title }}</a></li>
+          {%- elsif navparent and p.url == navparent.url %}
+          <li class="active"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
           {%- else %}
           <li><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
           {%- endif %}
@@ -23,6 +25,8 @@
           {%- for p in navpages %}{% if p.nav_secondary %}
           {%- if p.url == page.url %}
           <li class="secondary active"><a href="{{ p.url | relative_url }}" aria-current="page">{{ p.title }}</a></li>
+          {%- elsif navparent and p.url == navparent.url %}
+          <li class="secondary active"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
           {%- else %}
           <li class="secondary"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
           {%- endif %}

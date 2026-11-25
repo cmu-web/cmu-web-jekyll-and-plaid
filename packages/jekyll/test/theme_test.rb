@@ -67,6 +67,20 @@ class ThemeTest < Minitest::Test
     end
   end
 
+  def test_a_page_under_another_goes_through_it
+    site = SITE.merge(
+      'catalog.md' => "# Catalog\n\nSee [Letters](letters.md).\n",
+      'letters.md' => "---\nnav_parent: catalog.md\nnav_exclude: true\n---\n# Letters\n"
+    )
+    build(site) do |out|
+      page = File.read(File.join(out, 'letters.html'))
+      assert_match %r{<a href="/catalog.html">Catalog</a>&nbsp;&rsaquo;&nbsp;Letters}, page,
+                   'the breadcrumbs go through the parent'
+      assert_includes page, '<li class="active"><a href="/catalog.html">Catalog</a></li>', "the parent's tab stays marked"
+      refute_match %r{<li[^>]*><a href="/letters.html">}, page, 'the page itself stays out of the tabs'
+    end
+  end
+
   def test_the_theme_script_is_copied_into_the_site
     build(SITE) do |out|
       assert File.file?(File.join(out, 'assets/js/jekyll-and-plaid.js'))

@@ -49,6 +49,19 @@ nav_secondary: true
 ---
 ```
 
+To put a page under another, such as a page that a catalog or an index
+links to, give it `nav_parent` with that page's file name. The breadcrumbs go
+through the parent, and the parent's tab stays marked on the page. Pair it
+with `nav_exclude` to keep the page out of the tabs:
+
+```yaml
+---
+title: Letters
+nav_parent: catalog.html
+nav_exclude: true
+---
+```
+
 To list the navigation in one place instead, name the pages in order in
 `_config.yml`; the list replaces `nav_order` and `nav_exclude`:
 

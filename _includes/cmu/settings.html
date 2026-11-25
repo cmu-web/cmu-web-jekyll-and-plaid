@@ -8,6 +8,8 @@
 {%- assign roof = "red invert" -%}
 {%- if cmu.roof == "gray" or cmu.roof == "grey" -%}{%- assign roof = "darkgrey invert" -%}{%- elsif cmu.roof == "white" -%}{%- assign roof = "" -%}{%- endif -%}
 {%- assign home = false -%}{%- if page.url == "/" or page.url == "/index.html" -%}{%- assign home = true -%}{%- endif -%}
+{%- comment -%} The page this one sits under, by file name (nav_parent): in the breadcrumbs, and its tab stays marked {%- endcomment -%}
+{%- assign navparent = nil -%}{%- if page.nav_parent -%}{%- assign navparent = site.html_pages | where: "path", page.nav_parent | first -%}{%- endif -%}
 {%- if cmu.nav -%}
   {%- assign navpages = "" | split: "" -%}
   {%- for name in cmu.nav -%}
