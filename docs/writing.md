@@ -49,6 +49,17 @@ nav_secondary: true
 ---
 ```
 
+To give a page's tab a shorter label than its title, give it `nav_title`.
+The tab and the menu show the label; the page's heading, breadcrumbs and
+browser title keep the title:
+
+```yaml
+---
+title: A Serving Suggestion
+nav_title: Configure
+---
+```
+
 To put a page under another, such as a page that a catalog or an index
 links to, give it `nav_parent` with that page's file name. The breadcrumbs go
 through the parent, and the parent's tab stays marked on the page. Pair it

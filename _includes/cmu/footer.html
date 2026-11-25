@@ -11,11 +11,11 @@
           {%- comment %} Tabs: the pages, then nav_links marked tab {% endcomment %}
           {%- for p in navpages %}{% unless p.nav_secondary %}
           {%- if p.url == page.url %}
-          <li class="active"><a href="{{ p.url | relative_url }}" aria-current="page">{{ p.title }}</a></li>
+          <li class="active"><a href="{{ p.url | relative_url }}" aria-current="page">{{ p.nav_title | default: p.title }}</a></li>
           {%- elsif navparent and p.url == navparent.url %}
-          <li class="active"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
+          <li class="active"><a href="{{ p.url | relative_url }}">{{ p.nav_title | default: p.title }}</a></li>
           {%- else %}
-          <li><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
+          <li><a href="{{ p.url | relative_url }}">{{ p.nav_title | default: p.title }}</a></li>
           {%- endif %}
           {%- endunless %}{% endfor %}
           {%- for l in cmu.nav_links %}{% if l.tab %}
@@ -24,11 +24,11 @@
           {%- comment %} Menu only: pages marked nav_secondary, then the other nav_links {% endcomment %}
           {%- for p in navpages %}{% if p.nav_secondary %}
           {%- if p.url == page.url %}
-          <li class="secondary active"><a href="{{ p.url | relative_url }}" aria-current="page">{{ p.title }}</a></li>
+          <li class="secondary active"><a href="{{ p.url | relative_url }}" aria-current="page">{{ p.nav_title | default: p.title }}</a></li>
           {%- elsif navparent and p.url == navparent.url %}
-          <li class="secondary active"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
+          <li class="secondary active"><a href="{{ p.url | relative_url }}">{{ p.nav_title | default: p.title }}</a></li>
           {%- else %}
-          <li class="secondary"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
+          <li class="secondary"><a href="{{ p.url | relative_url }}">{{ p.nav_title | default: p.title }}</a></li>
           {%- endif %}
           {%- endif %}{% endfor %}
           {%- for l in cmu.nav_links %}{% unless l.tab %}
