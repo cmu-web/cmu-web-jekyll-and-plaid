@@ -39,9 +39,8 @@ nav_order: 2
 ---
 ```
 
-For a page about the site rather than one of its main sections, such as an
-About or a Gallery page, give it `nav_secondary: true`. It stays out of the
-tabs and appears in the menu after them:
+To keep a page out of the tabs, give it `nav_secondary: true`. It appears in
+the menu after them:
 
 ```yaml
 ---
@@ -139,6 +138,7 @@ Tables are striped and fill the page's width.
 | `cmu.logo` | A logo to the right of the name, below it on phones | None |
 | `cmu.logo_url` | Where the logo goes | The home page |
 | `cmu.logo_alt` | The logo's alt text, for a `logo_url` | None |
+| `cmu.menu_open` | `true` lets the menu open by itself on a wide screen, on a page that is only in the menu | `false`: the menu starts closed |
 
 ## Code
 

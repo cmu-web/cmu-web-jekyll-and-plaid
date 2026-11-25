@@ -30,7 +30,7 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: 'en' }}">
 {% include cmu/head.html -%}
-<body class="no-js">
+<body class="no-js"{% unless site.cmu.menu_open %} data-cmu-menu="closed"{% endunless %}>
 <div id="container">
 {% include cmu/header.html %}
   <main id="content">
